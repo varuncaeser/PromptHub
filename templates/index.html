@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAP-E</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="{{ url_for('static', filename='images/prompt_vid_int_4.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    
+    <div class="container">
+        <!-- Subcategory Dropdown -->
+        <div class="dropdown">
+            <label for="subcategories">Choose a Category: </label>
+            <select id="subcategories">
+                <option value="" disabled selected>Select...</option>
+                <option value="1">Prompts for Content Creation</option>
+                <option value="2">Prompts for Developers</option>
+                <option value="3"> Prompts for Data Science:</option>
+                <option value="4">As as Teacher</option>
+                <option value="5">Prompts for Advertising </option>
+            </select>
+        </div>
+
+        <!-- Sub-subcategory Dropdown -->
+        <div class="dropdown" id="subSubcategoryDropdown" style="display: none;">
+            <label for="subSubcategories">Choose a Sub-category: </label>
+            <select id="subSubcategories">
+                <option value="" disabled selected>Select...</option>
+            </select>
+        </div>
+
+        <!-- Content Box -->
+        <class class="content-box" id="contentBox" style="display: none;">
+            <p id="contentText"></p>
+            <div id="content-editor">
+                <p><a href="#" id="editLink">Here's the paragraph that needs improvement</a>.</p>
+            </div>
+            <textarea id="editor" rows="10" cols="50"></textarea>
+        
+            <button class="copy-button" id="copyButton">Copy</button>
+            <!-- <button class="copy-button" id="copyButton">Copy to AI</button> -->
+            </class>
+
+
+        </div>
+    </div>
+
+    
+
+        <!-- Chatbot Integration -->
+        <div class="chat-container">
+            <h2>Generate prompt with ZAP-E</h2>
+            <form method="POST" class="chat-form">
+                <select name="selection" id="selection">
+                    <option value="" selected disabled>Choose an option</option>
+                    <option value="ChatGpt">ChatGpt</option>
+                    <option value="DeepSeek">DeepSeek</option>
+                    <option value="Gemini">Gemini</option>
+                </select>
+                <input type="text" name="user_input" placeholder="Type your message..." required>
+                <button type="submit">Send</button>
+            </form>
+            <textarea readonly>{% if bot_response %}{{ bot_response }}{% endif %}</textarea>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Press Releases</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Help & Support</h3>
+                <ul>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#">Prompts for Content Creation</a></li>
+                    <li><a href="#">Prompts for Developers</a></li>
+                    <li><a href="#">Prompts for Data Science</a></li>
+                    <li><a href="#">Prompts for Advertising</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="{{ url_for('static', filename='images/facebook-icon.png') }}" alt="Facebook">
+                    <a href="#"><img src="{{ url_for('static', filename='images/twitter-icon.png') }}" alt="Twitter">
+                    <a href="#"><img src="{{ url_for('static', filename='images/linkedin-icon.png') }}" alt="LinkedIn"> 
+                    <a href="#"><img src="{{ url_for('static', filename='images/github-icon.png') }}" alt="GitHub">
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Prompt Engineer | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    
+</body>
+</html>
