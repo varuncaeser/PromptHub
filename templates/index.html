@@ -68,38 +68,53 @@
                 <input type="text" name="user_input" placeholder="Type your message..." required>
                 <button type="submit">Send</button>
             </form>
-            <textarea readonly>{% if bot_response %}{{ bot_response }}{% endif %}</textarea>
+
+
+
+            <!-- New Dropdown for External Chatbots -->
+    <div class="dropdown-container">
+        <label for="chatbot-links">Visit Chatbots:</label>
+        <select id="chatbot-links" onchange="openChatbotSite()">
+            <option value="" selected disabled>Choose a chatbot</option>
+            <option value="https://copilot.microsoft.com/">Copilot</option>
+            <option value="https://chat.openai.com/">ChatGPT</option>
+            <option value="https://gemini.google.com/">Gemini</option>
+            <option value="https://deepseek.com/">DeepSeek</option>
+            <option value="https://claude.ai/">Claude</option>
+        </select>
+    </div>
+
+            <textarea  id= "aiResponse" readonly>{% if bot_response %}{{ bot_response }}{% endif %}</textarea>
+            <button id="copy">Copy</button>
         </div>
     </div>
 
     <footer>
         <div class="footer-container">
             <div class="footer-section">
-                <h3>Company</h3>
+                <h3>About Us</h3>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Press Releases</a></li>
+                    <li><a href="https://www.linkedin.com/in/varunmalyam/">DEV 1</a></li>
+                    <li><a href="https://www.linkedin.com/in/ghoshagniva/">DEV 2</a></li>
+                    <li><a href="mailto:prompt.engineer.hub">Send Email</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Help & Support</h3>
+                <h3>Help</h3>
                 <ul>
-                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="mailto:prompt.engineer.hub">Email Us</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Explore</h3>
+                <h3>Help Us</h3>
                 <ul>
-                    <li><a href="#">Prompts for Content Creation</a></li>
-                    <li><a href="#">Prompts for Developers</a></li>
-                    <li><a href="#">Prompts for Data Science</a></li>
-                    <li><a href="#">Prompts for Advertising</a></li>
+                    <li><a href="{{ url_for('help_page') }}">Buy Us Tea</a></li>
                 </ul>
+                
             </div>
             <div class="footer-section">
                 <h3>Follow Us</h3>
-                <div class="social-icons">
+                <div class="social-icons">  
                     <a href="#"><img src="{{ url_for('static', filename='images/facebook-icon.png') }}" alt="Facebook">
                     <a href="#"><img src="{{ url_for('static', filename='images/twitter-icon.png') }}" alt="Twitter">
                     <a href="#"><img src="{{ url_for('static', filename='images/linkedin-icon.png') }}" alt="LinkedIn"> 
