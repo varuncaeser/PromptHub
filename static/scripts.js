@@ -124,3 +124,22 @@ copyButton.addEventListener('click', function() {
     contentBox.style.display = 'none';});
     });
 
+    // redirect to different Chatbot pages
+    function openChatbotSite() {
+        var selectedValue = document.getElementById("chatbot-links").value;
+        if (selectedValue) {
+            window.open(selectedValue, "_blank"); // Open in a new tab
+        }
+    }
+
+    
+    // copy button for chatbot
+    document.getElementById('copy').addEventListener('click', function() {
+        var aiResponse = document.getElementById('aiResponse').value;
+        navigator.clipboard.writeText(aiResponse).then(function() {
+            // Alert the copied text (optional)
+            alert('Copied the text: ' + aiResponse);
+        }).catch(function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    });
