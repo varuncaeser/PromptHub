@@ -19,9 +19,9 @@ def chat():
     return render_template("index.html", bot_response=bot_response)
 
 
-@app.route("/help")
-def help_page():
-    return render_template("donate.html") 
+# @app.route("/help")
+# def help_page():
+#     return render_template("donate.html") 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
